@@ -16,7 +16,7 @@ class Cache:
         """
         Initializes a Cache instance
         """
-        self._redis = redis.Redis()
+        self._redis = redis.Redis(host="localhost", port=6379, db=0)
         (self._redis).flushdb()  # flush the current database (DB 0)
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
